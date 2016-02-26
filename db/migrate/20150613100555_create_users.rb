@@ -10,6 +10,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name, :null => false
       t.string :email, :null => false
       t.string :password_hash, :null => false
+      t.string :sms_verification
+      t.boolean :active, default: false
       t.timestamps
     end
     add_index :users, :email, :unique => true

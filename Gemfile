@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 # PostgreSQL driver
 gem 'pg'
 gem 'hirb'
+gem 'awesome_print'
+gem 'twilio-ruby'
+
+
 
 # Sinatra driver
 gem 'sinatra'
