@@ -1,117 +1,139 @@
 <section id="main" data-layout="layout-1">
     <section id="content">
         <div class="container">            
-    
+
             <div class="card">
+
                 <div class="jumbotron">
-                    <h1>Hello, world!</h1>
+                    <h1>welcome to <font style="color:#F44336;">magnitude!</font></h1>
                     <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
                     <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
                 </div>
+
             </div>
 
+            <!-- Login Form Starts Here -->
+            <form action="/" method="POST" id="form_sms">
+            <div class="text-center div_sms" hidden="true">
+                <div class="lc-block toggled text-center" id="l-login">
+                    <h4>Please enter the sms verification code</h4>
+                    <div class="alert alert-danger alert-dismissible" role="alert" hidden="true">Oh snap! Invalid Verification Code! Please try again...</div>
+                    <div class="alert alert-success alert-dismissible" role="success" hidden="true">Cool! You are verified...</div>
+                    <br><br>
+                    <div class="input-group m-b-20">
+                        <span class="input-group-addon"><i class="zmdi zmdi-code-smartphone"></i></span>
+                        <div class="fg-line">
+                            <input type="text" name="sms_verification" class="form-control" placeholder="Verification Code">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>           
+                    <a href="" class="btn btn-login btn-danger btn-float btn_sms"><i class="zmdi zmdi-arrow-forward"></i></a>
+                    
+                </div>
+            </div>
+            </form>
+            <!-- Login Form Ends Here -->
 
-            <div class="card">
+            <div class="clearfix"></div>
+
+            <!-- Registration Form Starts Here -->
+            <div class="card div_registration">
                 <div class="card-header">
                     <h2>Input Groups <small>Extend form controls by adding text or buttons before, after, or on both sides of any text-based inputs.</small></h2>
                 </div>
                 
                 <div id="user_new_card" class="card-body card-padding">
                     
+                <form action="/users/new" id="user_new_form" method="POST">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="pagination">
+                                <li><a href="">1</a></li>
+                                <li><h5>Text me at this number</h5></li>
+                            </ul>
+                        </div>
 
+                        <div class="col-sm-6 m-b-20">
+                            <div class="form-group fg-line">
+                                <input type="text" name="user[phone]" class="form-control input-mask" data-mask="(000) 000-0000" placeholder="eg: (000) 000-0000">
+                            </div>
+                        </div>
+                    </div>
 
-<form action="/users/new" id="user_new_form" method="POST">
-<div class="row">
-    <div class="col-sm-6">
-        <ul class="pagination">
-            <li><a href="">1</a></li>
-            <li><h5>Text me at this number</h5></li>
-        </ul>
-    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="pagination">
+                                <li><a href="">2</a></li>
+                                <li><h5>When there is an earthquake with a magnitude of</h5></li>
+                            </ul>
+                        </div>
 
-    <div class="col-sm-6 m-b-20">
-        <div class="form-group fg-line">
-            <input type="text" name="user[phone]" class="form-control input-mask" data-mask="(000) 000-0000" placeholder="eg: (000) 000-0000">
-        </div>
-    </div>
-</div>
-                         
+                        <div class="col-sm-6 m-b-25">        
+                            <select class="selectpicker" name="user[mag]">
+                                <option value="3">3 or higher</option>
+                                <option value="4">4 or higher</option>
+                                <option value="5">5 or higher</option>
+                                <option value="6">6 or higher</option>
+                            </select>
+                        </div>
+                    </div>
 
-<div class="row">
-    <div class="col-sm-6">
-        <ul class="pagination">
-            <li><a href="">2</a></li>
-            <li><h5>When there is an earthquake with a magnitude of</h5></li>
-        </ul>
-    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="pagination">
+                                <li><a href="">3</a></li>
+                                <li><h5>Within the radius of the location I click below:</h5></li>
+                            </ul>
+                        </div>
+                    </div>
 
-    <div class="col-sm-6 m-b-25">        
-        <select class="selectpicker" name="user[mag]">
-            <option value="3">3 or higher</option>
-            <option value="4">4 or higher</option>
-            <option value="5">5 or higher</option>
-            <option value="6">6 or higher</option>
-        </select>
-    </div>
-</div>
+                    <br><br>
 
-<div class="row">
-    <div class="col-sm-12">
-        <ul class="pagination">
-            <li><a href="">3</a></li>
-            <li><h5>Within the radius of the location I click below:</h5></li>
-        </ul>
-    </div>
-</div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <p class="f-500 m-b-15 c-black">Location</p>
+                                <div class="fg-line">    
+                                    <input type="text" class="form-control" name="user[address]" id="us3-address"/>
+                                </div>
+                                <span class="input-group-addon last"><i class="zmdi zmdi-my-location"></i></span>
+                            </div>
+                        </div>
 
-<br><br>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <p class="f-500 m-b-15 c-black">Radius</p>
+                                <div class="fg-line">    
+                                    <input type="text" name="user[radius]" class="form-control" id="us3-radius"/>
+                                </div>
+                                <span class="input-group-addon last"><i class="zmdi zmdi-my-location"></i></span>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="row">
-    <div class="col-sm-6">
-        <div class="input-group">
-            <p class="f-500 m-b-15 c-black">Location</p>
-            <div class="fg-line">    
-                <input type="text" class="form-control" name="user[address]" id="us3-address"/>
+                    <br><br>
+
+                    <div class="row">
+                        <div class="col-sm-12"><div id="us3" style="width: 830px; height: 400px;"></div></div>
+                    </div>
+
+                    <br><br>
+
+                    <div class="row">
+                        <div class="col-sm-1">Latitude:</div>
+                        <div class="col-sm-2"><input type="text" class="form-control" name="user[lat]" id="us3-lat"/></div>
+                        <div class="col-sm-1">Longtitude:</div>
+                        <div class="col-sm-2"><input type="text" class="form-control" name="user[lon]" id="us3-lon"/></div>
+                    </div>
+
+                    <br><br>
+
+                    <div class="row">
+                        <div class="col-sm-3 text-center"></div>
+                        <div class="col-sm-6 text-center"><button type="submit" class="btn btn-block btn-primary btn-lg">Join Now!</button></div>
+                        <div class="col-sm-3 text-center"></div>
+                    </div>
+                </form>
             </div>
-            <span class="input-group-addon last"><i class="zmdi zmdi-my-location"></i></span>
-        </div>
-    </div>
-
-    <div class="col-sm-6">
-        <div class="input-group">
-            <p class="f-500 m-b-15 c-black">Radius</p>
-            <div class="fg-line">    
-                <input type="text" name="user[radius]" class="form-control" id="us3-radius"/>
-            </div>
-            <span class="input-group-addon last"><i class="zmdi zmdi-my-location"></i></span>
-        </div>
-    </div>
-</div>
-
-<br><br>
-
-<div class="row">
-    <div class="col-sm-12"><div id="us3" style="width: 830px; height: 400px;"></div></div>
-</div>
-
-<br><br>
-
-<div class="row">
-    <div class="col-sm-1">Latitude:</div>
-    <div class="col-sm-2"><input type="text" class="form-control" name="user[lat]" id="us3-lat"/></div>
-    <div class="col-sm-1">Longtitude:</div>
-    <div class="col-sm-2"><input type="text" class="form-control" name="user[lon]" id="us3-lon"/></div>
-</div>
-
-<br><br>
-
-<div class="row">
-    <div class="col-sm-3 text-center"></div>
-    <div class="col-sm-6 text-center"><button type="submit" class="btn btn-block btn-primary btn-lg">Join Now!</button></div>
-    <div class="col-sm-3 text-center"></div>
-</div>
-</form>
-
-        </div>
-    </section>
+        </section>
 </section>

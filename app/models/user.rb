@@ -1,17 +1,4 @@
-class EmailValidator < ActiveModel::EachValidator
-  def validate_each(record, attribute, value)
-    unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-      record.errors[attribute] << (options[:message] || "is not an email")
-    end
-  end
-end
-
 class User < ActiveRecord::Base
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :email, presence: true, uniqueness: true, email: true
-  validates :password_hash, presence: true
-
   def password
     @password ||= BCrypt::Password.new(password_hash)
   end
@@ -27,7 +14,7 @@ class User < ActiveRecord::Base
 
 
   # After initialization, set default values
-  # after_initialize :send_sms_verification
+  after_initialize :send_sms_verification
 
   private
   def send_sms_verification
@@ -51,8 +38,7 @@ class User < ActiveRecord::Base
           :from => from,
           :to => reciever,
           :body => "Here is your verification code: #{code}"
-        )
-        
+        )        
     end
 
 end
