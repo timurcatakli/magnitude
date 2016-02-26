@@ -27,7 +27,8 @@ end
 # Insert Earthquake feed into database
 
   @earthquakes_stored = Feed.all.order(created_at: :desc)
-  erb :'/earthquakes/pull'
+  
+  erb :'/earthquakes/pull', :layout => :layout_pull
 end
 
 get '/secret' do

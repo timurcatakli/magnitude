@@ -15,7 +15,7 @@ $(document).ready(function () {
   // Location Picker Code Starts Here
 
   // Intercept User Registration Post Form Submit
-  $('#user_new_card').on('submit', '#btn_submit', function(e){
+$('#user_new_card').on('submit', '#user_new_form', function(e){
     e.preventDefault();
 
     $( ".div_registration" ).slideUp( "slow", function() {

@@ -1,38 +1,37 @@
-
-        <h1>Latest Earthquakes</h1>
-        <hr>
-        <h3><%= @earthquakes_stored.count %> earthquakes recorded</h3>
-        <div class="col-md-6">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>id</th>
-                <th>Magnitude</th>
-                <th>Epicenter</th>
-                <th>Time Happened</th>
-                <th>Alerts Raised</th>
-                <th>Map Location</th>
-              </tr>
-            </thead>
-            <!-- Iterate Earthquakes Starts Here -->
-            <% i = 1 %>
-            <% @earthquakes_stored.each do |earthquake| %>
-              <tbody>
-                <tr>
-                  <td><%= i %></td>
-                  <td><%= earthquake['feedid'] %></td>
-                  <td><%= earthquake['mag'] %></td>
-                  <td><%= earthquake['place'] %></td>
-                  <td><%= earthquake['time'] %></td>
-                  <td><%= earthquake['alert'] %></td>
-                  <td>
-                  <a href="http://www.google.com/maps/place/<%= earthquake['latitude'] %>,<%= earthquake['longtitude'] %>"> Google Maps</a></td>
-
-                </tr>
-              </tbody>
-            <% i += 1 %>
-            <% end %>
-            <!-- Iterate Earthquakes Ends Here -->
-          </table>
-        </div>
+        <section id="main">
+            <section id="content">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><%= @earthquakes_stored.count %> earthquakes recorded</h2>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table id="data-table-basic" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th data-column-id="id" data-type="numeric">ID</th>
+                                        <th data-column-id="feedid" >Feed ID</th>
+                                        <th data-column-id="sender">Magnitude</th>
+                                        <th data-column-id="sender">Epicenter</th>
+                                        <th data-column-id="received" data-order="desc">Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <% @earthquakes_stored.each do |earthquake| %>
+                                    <tr>
+                                        <td><%= earthquake['id'] %></td>
+                                        <td><%= earthquake['feedid'] %></td>
+                                        <td><%= earthquake['mag'] %></td>
+                                        <td><%= earthquake['place'] %></td>
+                                        <td><%= earthquake['time'] %></td>
+                                    </tr>
+                                <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+        </section>

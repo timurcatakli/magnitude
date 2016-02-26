@@ -34,11 +34,11 @@ class User < ActiveRecord::Base
       from = "+16505819607" # Your Twilio number     
       reciever = "+14158678407"
 
-        # client.account.messages.create(
-        #   :from => from,
-        #   :to => reciever,
-        #   :body => "Here is your verification code: #{code}"
-        # )        
+        client.account.messages.create(
+          :from => from,
+          :to => reciever,
+          :body => "Here is your verification code: #{code}"
+        )        
     end
 
 end
