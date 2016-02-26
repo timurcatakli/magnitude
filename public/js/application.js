@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+//initial 2
   // Location Picker Code Starts Here
   $('#us3').locationpicker({
       location: {latitude: 46.15242437752303, longitude: 2.7470703125},
