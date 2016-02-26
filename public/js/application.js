@@ -11,14 +11,11 @@ $(document).ready(function () {
           locationNameInput: $('#us3-address')
       },
       enableAutocomplete: true,
-      onchanged: function (currentLocation, radius, isMarkerDropped) {
-          alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
-      }
   });
   // Location Picker Code Starts Here
 
   // Intercept User Registration Post Form Submit
-  $('#user_new_card').on('submit', '#user_new_form', function(e){
+  $('#user_new_card').on('submit', '#btn_submit', function(e){
     e.preventDefault();
 
     $( ".div_registration" ).slideUp( "slow", function() {
